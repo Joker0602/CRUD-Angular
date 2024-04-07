@@ -1,0 +1,84 @@
+<div class="container py-4">
+  <h2 class="" style="text-align:center">Student Form</h2>
+
+  <!--form start-->
+  <form #studentForm="ngForm">
+    <div class="row">
+      <div class="col-md-6">
+        <label>Student Id</label>
+        <input type="number" #sId="ngModel"  id="txtSId" disabled [(ngModel)]="student.sId" class="form-control" readonly name="id" />
+      </div>
+    </div>
+   
+    <div class="row">
+      <div class="col-md-6">
+        <label>Name</label>
+        <input type="text" #sName="ngModel" id="txtSName" [(ngModel)]="student.sName" class="form-control" required name="name" />
+        <div *ngIf="sName.touched && sName.invalid" class="alert">Name is required</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>Email</label>
+        <input type="email" #sEmail="ngModel" id="txtEmail" [(ngModel)]="student.sEmail" class="form-control" email required name="Email" />
+        <div *ngIf="sEmail.touched && sEmail.invalid" class="alert">Email is Invalid</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <label>Age</label>
+        <input type="number" #age="ngModel" id="txtAge" [(ngModel)]="student.age" class="form-control" required name="age" />
+        <div *ngIf="age.touched && age.invalid" class="alert">Age is Invalid</div>
+      </div>
+      <div class="col-md-3">
+        <label>Contact</label>
+        <input type="text" #contact="ngModel" id="txtContact" [(ngModel)]="student.contact" class="form-control" minlength="10" maxlength="10" required name="contact" />
+        <div *ngIf="contact.touched && contact.invalid" class="alert">Contact is Invalid</div>
+      </div>
+    </div>
+    <!--button group-->
+      <div class="row mt-3">
+        <div class="btn-group col-md-4">
+          <button class="btn btn-success" [disabled]="!studentForm.form.valid && saveBtn" (click)="studentForm.form.valid &&Save(studentForm)">Save</button>
+          <button class="btn btn-primary" [disabled]="updateBtn" (click)="update(studentForm)">Update</button>
+          <button class="btn btn-danger" [disabled]="deleteBtn" (click)="Delete()">Delete</button>
+          <button class="btn btn-danger" (click)="clear()">Cancel</button>
+        </div>
+      </div>
+  </form>
+  <hr />
+
+  <!--table start-->
+  <div class="row" *ngIf="studentList.length > 0; else noStudents">
+    <div class="col-md-10">
+      <table class="table table-responsive-lg table-bordered">
+        <thead>
+          <tr>
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Contact</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let student of studentList; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{student.sName}}</td>
+            <td>{{student.sEmail}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.contact}}</td>
+            <td><a href="#" (click)="getById(student.sId)">Edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ng-template #noStudents>
+    <h6 style="color:red">No Data Present</h6>
+  </ng-template>
+</div>
