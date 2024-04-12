@@ -9,9 +9,12 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./student-form.component.css'],
 })
 export class StudentFormComponent {
+
   studentList: studentMaster[] = [];
+
   studentForm: FormGroup | any;
   student: studentMaster = {} as studentMaster;
+
   MxId: number = 0;
   mobilePattern = '/^d+$/';
 
@@ -48,9 +51,9 @@ export class StudentFormComponent {
 
     this.studentService.maxId().subscribe((res) => {
       if (res === 0) {
-        this.student.sId= 1;
+        this.MxId= 1;
       } else {
-        this.student.sId = res + 1;
+        this.MxId = res + 1;
       }
     });
 
