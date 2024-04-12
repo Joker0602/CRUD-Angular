@@ -158,3 +158,4 @@ E:\ANGULAR\StudentApp\StudentAPI\StudentAPI\obj\Debug\net8.0\refint\StudentAPI.d
 E:\ANGULAR\StudentApp\StudentAPI\StudentAPI\obj\Debug\net8.0\StudentAPI.pdb
 E:\ANGULAR\StudentApp\StudentAPI\StudentAPI\obj\Debug\net8.0\StudentAPI.genruntimeconfig.cache
 E:\ANGULAR\StudentApp\StudentAPI\StudentAPI\obj\Debug\net8.0\ref\StudentAPI.dll
+E:\ANGULAR\StudentApp\StudentAPI\StudentAPI\obj\Debug\net8.0\StudentAPI.sourcelink.json
