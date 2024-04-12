@@ -15,7 +15,6 @@ export class StudentFormComponent {
   studentForm: FormGroup | any;
   student: studentMaster = {} as studentMaster;
 
-  MxId: number = 0;
   mobilePattern = '/^d+$/';
 
   saveBtn: boolean = true;
@@ -51,9 +50,9 @@ export class StudentFormComponent {
 
     this.studentService.maxId().subscribe((res) => {
       if (res === 0) {
-        this.MxId= 1;
+        this.student.sId= 1;
       } else {
-        this.MxId = res + 1;
+        this.student.sId = res + 1;
       }
     });
 
