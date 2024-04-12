@@ -48,9 +48,8 @@ export class StudentFormComponent {
 
     this.studentService.maxId().subscribe((res) => {
       if (res === 0) {
-        this.MxId = 1;
+        this.student.sId= 1;
       } else {
-        this.MxId = res;
         this.student.sId = res + 1;
       }
     });
